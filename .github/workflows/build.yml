@@ -5,6 +5,7 @@ on:
       - main
     paths:
       - src/**.Dockerfile
+  workflow_dispatch:
 
 jobs:
   build:
@@ -14,5 +15,6 @@ jobs:
 
       - name: Build images and push to docker hub
         run: docker-build-and-push.bash
+        shell: bash
         env:
           DOCKER_TOKEN: "${{ secrets.TOKEN_DOCKER }}"

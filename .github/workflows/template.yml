@@ -14,6 +14,8 @@ jobs:
 
       - name: Build templates and push changes
         run: build-templates.bash
+        shell: bash
 
       - name: Commit changes
         run: commit-changes.bash
+        shell: bash
