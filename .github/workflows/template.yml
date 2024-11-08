@@ -5,14 +5,15 @@ on:
   workflow_dispatch:
 
 jobs:
-  runs-on: ubuntu-latest
-  steps:
-    - uses: actions/checkout@v4
-      with:
-        token: ${{ secrets.TOKEN_GITHUB }}
+  template:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.TOKEN_GITHUB }}
 
-    - name: Build templates and push changes
-      run: build-templates.bash
+      - name: Build templates and push changes
+        run: build-templates.bash
 
-    - name: Commit changes
-      run: commit-changes.bash
+      - name: Commit changes
+        run: commit-changes.bash

@@ -7,11 +7,12 @@ on:
       - src/**.Dockerfile
 
 jobs:
-  runs-on: ubuntu-latest
-  steps:
-    - uses: actions/checkout@v4
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
 
-    - name: Build images and push to docker hub
-      run: docker-build-and-push.bash
-      env:
-        DOCKER_TOKEN: "${{ secrets.TOKEN_DOCKER }}"
+      - name: Build images and push to docker hub
+        run: docker-build-and-push.bash
+        env:
+          DOCKER_TOKEN: "${{ secrets.TOKEN_DOCKER }}"
