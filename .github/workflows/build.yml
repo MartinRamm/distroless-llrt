@@ -14,7 +14,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Build images and push to docker hub
-        run: docker-build-and-push.bash
+        run: ${GITHUB_WORKSPACE}/docker-build-and-push.bash
         shell: bash
         env:
           DOCKER_TOKEN: "${{ secrets.TOKEN_DOCKER }}"

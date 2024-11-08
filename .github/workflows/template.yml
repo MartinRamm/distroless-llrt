@@ -13,9 +13,9 @@ jobs:
           token: ${{ secrets.TOKEN_GITHUB }}
 
       - name: Build templates and push changes
-        run: build-templates.bash
+        run: ${GITHUB_WORKSPACE}/build-templates.bash
         shell: bash
 
       - name: Commit changes
-        run: commit-changes.bash
+        run: ${GITHUB_WORKSPACE}/commit-changes.bash
         shell: bash
