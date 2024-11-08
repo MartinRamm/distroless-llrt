@@ -1,0 +1,3 @@
+FROM --platform amd64 gcr.io/distroless/cc:nonroot@sha256:${distrolessHashX64}
+ADD --checksum=sha256:${llrtHashX64} --chmod=777 https://github.com/awslabs/llrt/releases/download/${llrtVersion}/llrt-container-x64-no-sdk /usr/bin/llrt
+CMD [ "llrt" ]
