@@ -1,6 +1,6 @@
 #! /usr/bin/env bash
 
-echo "$TOKEN_DOCKER" | docker login -u martinramm --password-stdin;
+#echo "$TOKEN_DOCKER" | docker login -u martinramm --password-stdin;
 
 gitCommit=$(git log --format="%H" -n 1);
 echo -e "llrtVersion=${gitCommit}\n";
@@ -11,8 +11,8 @@ echo -e "llrtVersion=${llrtVersion}\n";
 for file in src/*.Dockerfile; do
     echo "Building $file";
     filename=$(basename "$file" '.Dockerfile');
-    docker image build -t "distroless-llrt:latest-${filename}" -t "distroless-llrt:${llrtVersion}-${filename}" -t "distroless-llrt:${filename}" --file "$file" .;
+    docker image build -t "martinramm/distroless-llrt:latest-${filename}" -t "martinramm/distroless-llrt:${llrtVersion}-${filename}" -t "martinramm/distroless-llrt:${filename}" --file "$file" .;
 done;
 
 echo "Pushing all built files";
-docker image push --all-tags 'distroless-llrt'
+#docker image push --all-tags 'martinramm/distroless-llrt'
