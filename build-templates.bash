@@ -31,7 +31,7 @@ echo -e "$llrtHashX64";
 
 for template in src/*.template; do
     echo "templating file $template";
-    envsubst -no-empty -no-unset -i "$template" -o "${template::-9}"; # 9 = size of ".template"
+    cat "$template" | envsubst > "${template::-9}"; # 9 = size of ".template"
 done;
 
 echo "$llrtVersion" > 'src/llrtversion.txt';
