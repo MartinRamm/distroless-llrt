@@ -1,0 +1,18 @@
+name: template
+on:
+  schedule:
+    - cron: '0 0,6,12,18 * * *' #every 6 hours
+  workflow_dispatch:
+
+jobs:
+  runs-on: ubuntu-latest
+  steps:
+    - uses: actions/checkout@v4
+      with:
+        token: ${{ secrets.TOKEN_GITHUB }}
+
+    - name: Build templates and push changes
+      run: build-templates.bash
+
+    - name: Commit changes
+      run: commit-changes.bash
