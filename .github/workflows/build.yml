@@ -17,4 +17,4 @@ jobs:
         run: ${GITHUB_WORKSPACE}/docker-build-and-push.bash
         shell: bash
         env:
-          DOCKER_TOKEN: "${{ secrets.TOKEN_DOCKER }}"
+          TOKEN_DOCKER: ${{ secrets.TOKEN_DOCKER }}
