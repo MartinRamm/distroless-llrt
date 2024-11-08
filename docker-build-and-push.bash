@@ -1,6 +1,6 @@
 #! /usr/bin/env bash
 
-#echo "$TOKEN_DOCKER" | docker login -u martinramm --password-stdin;
+echo "$TOKEN_DOCKER" | docker login -u martinramm --password-stdin;
 
 gitCommit=$(git log --format="%H" -n 1);
 echo -e "llrtVersion=${gitCommit}\n";
@@ -15,4 +15,4 @@ for file in src/*.Dockerfile; do
 done;
 
 echo "Pushing all built files";
-#docker image push --all-tags 'martinramm/distroless-llrt'
+docker image push --all-tags 'martinramm/distroless-llrt'
