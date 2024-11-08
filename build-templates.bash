@@ -1,19 +1,19 @@
 #! /usr/bin/env bash
 
 echo "determining distrolessHashArm64";
-export distrolessHashArm64=$(curl -s -o /dev/null -D - https://gcr.io/v2/distroless/cc/manifests/nonroot-arm64 | grep 'docker-content-digest:' | tail -c 64);
+export distrolessHashArm64=$(curl -s -o /dev/null -D - https://gcr.io/v2/distroless/cc/manifests/nonroot-arm64 | grep 'docker-content-digest:' | tr -d '[:space:]' | tail -c 64);
 echo -e "$distrolessHashArm64";
 
 echo "determining distrolessHashDebugArm64";
-export distrolessHashDebugArm64=$(curl -s -o /dev/null -D - https://gcr.io/v2/distroless/cc/manifests/debug-nonroot-arm64 | grep 'docker-content-digest:' | tail -c 64);
+export distrolessHashDebugArm64=$(curl -s -o /dev/null -D - https://gcr.io/v2/distroless/cc/manifests/debug-nonroot-arm64 | grep 'docker-content-digest:' | tr -d '[:space:]' | tail -c 64);
 echo -e "$distrolessHashDebugArm64";
 
 echo "determining distrolessHashX64";
-export distrolessHashX64=$(curl -s -o /dev/null -D - https://gcr.io/v2/distroless/cc/manifests/nonroot | grep 'docker-content-digest:' | tail -c 64);
+export distrolessHashX64=$(curl -s -o /dev/null -D - https://gcr.io/v2/distroless/cc/manifests/nonroot | grep 'docker-content-digest:' | tr -d '[:space:]' | tail -c 64);
 echo -e "$distrolessHashX64";
 
 echo "determining distrolessHashDebugX64";
-export distrolessHashDebugX64=$(curl -s -o /dev/null -D - https://gcr.io/v2/distroless/cc/manifests/debug-nonroot | grep 'docker-content-digest:' | tail -c 64);
+export distrolessHashDebugX64=$(curl -s -o /dev/null -D - https://gcr.io/v2/distroless/cc/manifests/debug-nonroot | grep 'docker-content-digest:' | tr -d '[:space:]' | tail -c 64);
 echo -e "$distrolessHashDebugX64";
 
 echo "determining llrtVersion";
