@@ -1,3 +1,3 @@
-FROM --platform=arm64 gcr.io/distroless/cc:debug-nonroot-arm64@sha256:145c7e5f587717b1bdc9d1dacf7cf463e472c11675a872cc24eb937bfb76fb6b
+FROM --platform=arm64 gcr.io/distroless/cc:debug-nonroot-arm64@sha256:d3dc81278a49c25ab9f796f06ef31e11dd50fafa1652ff7161120935895763ba
 ADD --checksum=sha256:d48f74182eba98b0510707f5b80aa19e78736f17d9e88edeea0ee6adbe6e8e39 --chmod=777 https://github.com/awslabs/llrt/releases/download/v0.10.0-beta/llrt-container-arm64-no-sdk /usr/bin/llrt
 CMD [ "llrt" ]
